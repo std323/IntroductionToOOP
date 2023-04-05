@@ -155,7 +155,25 @@ Fraction operator /(const Fraction& left, const Fraction& right)
 		).to_proper();*/
 	return left * right.inverted();
 }
+Fraction operator+(Fraction left, Fraction right)
+{
+	left.to_improper();
+	right.to_improper();
+	return Fraction(
+		left.get_numerator() * right.get_denominator() + left.get_denominator() * right.get_numerator(),
+		left.get_denominator() * right.get_denominator()
 
+	).to_proper();
+}
+Fraction operator-(Fraction left, Fraction right)
+{
+	left.to_improper();
+	right.to_improper();
+	return Fraction(
+		right.get_denominator()* left.get_numerator() - left.get_denominator()* right.get_numerator(),
+		left.get_denominator() * right.get_denominator()
+	).to_proper();
+}
 //#define CONSTRUCTORS_CHEK
 
 void main()
@@ -200,4 +218,10 @@ void main()
 
 	A.print();
 	B.print();
+
+	Fraction E = A + B;
+	E.print();
+
+	Fraction F = A - B;
+	F.print();
 }
