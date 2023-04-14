@@ -1,7 +1,10 @@
 ﻿#include<iostream>
 using namespace std;
 
+#define delimiter "\n--------------------------------------\n"
 
+class String;
+String operator+(const String& left, const String& right);
 class String
 {
 	int size;  // Размер строкив в Байтах
@@ -90,6 +93,12 @@ public:
 		other.str = nullptr;
 		cout << "MoveAssignemtn:\t\t" << this << endl;
 	}
+	//             Operators:
+
+	String& operator +=(const String& other)
+	{
+		return *this = *this + other;
+	}
 	const char& operator[](int i)const
 	{
 		return str[i];
@@ -118,13 +127,25 @@ String operator+(const String& left, const String& right)
 	//cat.get_str()[i+left.get_size()-1]=right.get_str()[i];
 	return cat;
 }
+
 std::ostream& operator <<(std::ostream& os, const String& obj)
 {
+	//os - Output stream
+	//obj - Object
 	return os << obj.get_str();
+}
+std::istream& operator>>(std::istream& is, String& obj)
+{
+	//is - Input Stream
+	const int SIZE = 102400;
+	char buffer[SIZE]{};
+	is >> buffer;
+	obj = buffer;
+	return is; // >> obj.get_str();
 }
 
 //#define CONSTRUCTORS_CHEK
-#define HOME_WORK_1
+//#define HOME_WORK_1
 
 void main()
 {
@@ -153,13 +174,18 @@ void main()
 	String str1 = "Hello";
 	String str2 = "World";
 	//String str3 = str1 + " " + str2;
-	String str3 = str1 + str2; //Move constructor
+	//String str3 = str1 + str2; //Move constructor
 	//String str3;
 	//str3 = str1 + str2;         //Move assignment
-	cout << str1 << " + " << str2 << " = " << str3 << endl;
-	//str1 += str2;
-	//cout << str1 << endl;
+	//cout << str1 << " + " << str2 << " = " << str3 << endl;
+	str1 += str2;
+	cout << delimiter << endl;
+	cout << str1 << endl;
+	cout << delimiter << endl;
 #endif // HOME_WORK_1
 
-
+	String str;
+	cout << "Введите строку: "; cin >> str;
+	str.print();
+	cout << str << endl;
 }
