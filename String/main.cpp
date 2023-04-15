@@ -3,6 +3,10 @@ using namespace std;
 
 #define delimiter "\n--------------------------------------\n"
 
+////////////////////////////////////////////////////////////////
+///////////    CLASS DECLARATION - ОБЬЯВЛЕНИЕ КЛАССА  //////////
+
+
 class String;
 String operator+(const String& left, const String& right);
 
@@ -35,6 +39,13 @@ public:
 	//        Methods:
 	void print()const;
 };
+
+/////////// CLASS DECLARATION END - КОНЕЦ ОБЬЯВЛЕНИЯ КЛАССА  //////////
+///////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////
+/////////// CLASS DEFINITION - ОПРЕДЕЛЕНИЕ КЛАССА  ////////////////////
+
 
 //:: - Оператор разрешения видимости (Scope operator)
 
@@ -171,6 +182,9 @@ std::istream& operator>>(std::istream& is, String& obj)
 	obj = buffer;
 	return is; // >> obj.get_str();
 }
+
+/////////// CLASS DEFINITION END - КОНЕЦ ОПРЕДЕЛЕНИЯ КЛАССА  //////////
+///////////////////////////////////////////////////////////////////////
 
 //#define CONSTRUCTORS_CHEK
 //#define HOME_WORK_1
