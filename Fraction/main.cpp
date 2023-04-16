@@ -361,7 +361,7 @@ std::istream& operator >>(std::istream& is, Fraction& obj)
 //#define TYPE_CONVERSION_BASICS
 //#define CONVERSION_FROM_OTHER_TO_CLASS
 //#define CONVERSION_FROM_CLASS_TO_OTHER
-#define HOME_WORK
+//#define HOME_WORK
 
 void main()
 {
